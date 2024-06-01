@@ -12,26 +12,26 @@ import io.restassured.specification.RequestSpecification;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class GetSteps {
+public class GetUserSteps {
     private RequestSpecification httpRequest;
     private Response response;
 
-    @Given("Pengguna sudah menentukan base url")
+    @Given("Pengguna sudah menentukan base url untuk get user")
     public void user_set_base_url(){
         RestAssured.baseURI = "https://dummyapi.io/data/v1/";
     }
 
-    @And("Pengguna tidak memiliki app-id")
+    @And("Pengguna tidak memiliki app-id untuk get user")
     public void user_have_no_app_id(){
         httpRequest = RestAssured.given().header("app-id", "").contentType(ContentType.JSON);
     }
 
-    @And("Pengguna memiliki app-id yang invalid")
+    @And("Pengguna memiliki app-id yang invalid untuk get user")
     public void user_have_invalid_app_id(){
         httpRequest = RestAssured.given().header("app-id", "token0412").contentType(ContentType.JSON);
     }
 
-    @And("Pengguna memiliki app-id yang valid")
+    @And("Pengguna memiliki app-id yang valid untuk get user")
     public void user_have_valid_app_id(){
         httpRequest = RestAssured.given().header("app-id", "663783f02e77a585c142311d").contentType(ContentType.JSON);
     }
@@ -46,7 +46,7 @@ public class GetSteps {
         response = httpRequest.request(Method.GET, "/user/" + userId);
     }
 
-    @Then("Pengguna menerima pesan error {string} dengan status code {string}")
+    @Then("Pengguna menerima pesan error {string} dengan status code {string} ketika get user")
     public void user_receive_error_message_and_status_code(String errorMessage, String statusCode){
         assertEquals("Unexpected status code", Integer.parseInt(statusCode), response.getStatusCode());
         assertTrue("Unexpected error message", response.getBody().asString().contains(errorMessage));
