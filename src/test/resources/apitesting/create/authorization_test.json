@@ -1,0 +1,17 @@
+{
+  "title": "ms",
+  "firstName": "Cinderella",
+  "lastName": "Ella",
+  "gender": "female",
+  "email": "cindererha@example.com",
+  "dateOfBirth" : "2006-09-16",
+  "phone": "01632960215",
+  "picture": "https://example.com/cinderella.jpg",
+  "location": {
+    "street": "123 Glass Slipper Lane",
+    "city": "Fairytale City",
+    "state": "Dreamland",
+    "country": "Fantasia",
+    "timezone": "+3:00"
+  }
+}
