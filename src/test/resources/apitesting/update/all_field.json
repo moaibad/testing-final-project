@@ -1,0 +1,18 @@
+{
+  "id": "60d0fe4f5311236168a109ca",
+  "title": "ms",
+  "firstName": "Siti",
+  "lastName": "Jubaedah",
+  "picture": "https://randomuser.me/api/portraits/women/58.jpg",
+  "gender": "female",
+  "email": "sara.andersen@example.com",
+  "dateOfBirth": "2000-05-20T19:26:49.610Z",
+  "phone": "0981623871523",
+  "location": {
+    "street": "123, Jalan Raya",
+    "city": "Jakarta",
+    "state": "DKI Jakarta",
+    "country": "Indonesia",
+    "timezone": "+7:00"
+  }
+}
