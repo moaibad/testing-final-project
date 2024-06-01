@@ -11,12 +11,12 @@ import java.io.IOException;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/apitesting/get.feature",
+        features = "src/test/resources/features/apitesting/create.feature",
         glue = "com.a1.apitesting.stepdefinitions",
         plugin = { "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }
 )
 
-public class GetTestRunner {
+public class CreateUserTestRunner {
 
     @AfterClass
     public static void openHtmlReport() {
