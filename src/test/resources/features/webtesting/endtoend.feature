@@ -1,5 +1,5 @@
 @EndToEnd
-Feature: End to end
+Feature: End to end Test
 
   Scenario: Melakukan checkout barang para aplikasi Swag Labs
     Given Pengguna berada pada halaman login

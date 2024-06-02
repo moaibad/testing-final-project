@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 1, 2024 09:35:26 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jun 3, 2024 01:30:02 AM</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('category-view')">
@@ -72,6 +77,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -79,7 +85,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@CREATE</a>
+<a class="dropdown-item" href="#">@Checkout</a><a class="dropdown-item" href="#">@Login</a><a class="dropdown-item" href="#">@EndToEnd</a><a class="dropdown-item" href="#">@Menu</a><a class="dropdown-item" href="#">@Cart</a><a class="dropdown-item" href="#">@ProductDetail</a><a class="dropdown-item" href="#">@Dashboard</a>
 </ul>
 </li>
 </ul>
@@ -90,9 +96,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Create User</p>
+            <p class="name">Cart Feature</p>
             <p class="text-sm">
-              <span>9:35:26 PM</span> / <span>00:00:02:971</span>
+              <span>1:30:03 AM</span> / <span>00:00:09:109</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -100,10 +106,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Create User</h5>
-<span class='badge badge-success'>06.01.2024 9:35:26 PM</span>
-<span class='badge badge-danger'>06.01.2024 9:35:29 PM</span>
-<span class='badge badge-default'>00:00:02:971</span>
+<h5 class="test-status text-pass">Cart Feature</h5>
+<span class='badge badge-success'>06.03.2024 1:30:03 AM</span>
+<span class='badge badge-danger'>06.03.2024 1:30:12 AM</span>
+<span class='badge badge-default'>00:00:09:109</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -115,28 +121,38 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Melakukan request create user tanpa header app-id</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Verifikasi halaman Cart tidak kosong dengan terdapat 1 barang</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_set_base_url()">
-                <span>Given Pengguna sudah menentukan base url untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah melakukan login</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_have_no_app_id()">
-                <span>And Pengguna tidak memiliki app-id untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_is_on_the_dashboard_page()">
+                <span>And Pengguna sudah berada pada halaman dashboard</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_send_get_request(java.lang.String)">
-                <span>When Pengguna mengirim create request dengan request body "authorization_test.json"</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_add_item_to_cart(java.lang.String)">
+                <span>When Pengguna menambah barang "Sauce Labs Backpack" ke cart</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_receive_error_message_and_status_code(java.lang.String,java.lang.String)">
-                <span>Then Pengguna menerima pesan error "APP_ID_MISSING" dengan status code "403" ketika create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_click_cart_button()">
+                <span>And Pengguna menekan icon cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_is_on_the_cart_page()">
+                <span>Then Pengguna berada pada halaman cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_see_the_number_of_product_in_the_cart(java.lang.String)">
+                <span>And Pengguna melihat "1" produk di dalam cart</span>
       <div>
       </div>
               </div>
@@ -146,28 +162,33 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="7"><span class="badge log pass-bg mr-2">Pass</span>Melakukan request create user dengan header app-id yang invalid</div>
+        <div class="node" id="12"><span class="badge log pass-bg mr-2">Pass</span>Menekan Tombol "Continue shoppIng" ketika berada dalam halaman cart</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_set_base_url()">
-                <span>Given Pengguna sudah menentukan base url untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah melakukan login</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_have_invalid_app_id()">
-                <span>And Pengguna memiliki app-id yang invalid untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_is_on_the_dashboard_page()">
+                <span>And Pengguna sudah berada pada halaman dashboard</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_send_get_request(java.lang.String)">
-                <span>When Pengguna mengirim create request dengan request body "authorization_test.json"</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_click_cart_button()">
+                <span>When Pengguna menekan icon cart</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_receive_error_message_and_status_code(java.lang.String,java.lang.String)">
-                <span>Then Pengguna menerima pesan error "APP_ID_NOT_EXIST" dengan status code "403" ketika create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_click_continue_shopping_button()">
+                <span>And Pengguna menekan tombol Continue Shopping</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_redirected_to_dashboard_page()">
+                <span>Then Pengguna dialihkan ke halaman dashboard</span>
       <div>
       </div>
               </div>
@@ -177,28 +198,144 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="12"><span class="badge log pass-bg mr-2">Pass</span>Melakukan request create user dengan header app-id yang valid</div>
+        <div class="node" id="21"><span class="badge log pass-bg mr-2">Pass</span>Menekan Tombol checkout ketika terdapat total 1 barang dalam cart</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_set_base_url()">
-                <span>Given Pengguna sudah menentukan base url untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah melakukan login</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_have_valid_app_id()">
-                <span>And Pengguna memiliki app-id yang valid untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_is_on_the_dashboard_page()">
+                <span>And Pengguna sudah berada pada halaman dashboard</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_send_get_request(java.lang.String)">
-                <span>When Pengguna mengirim create request dengan request body "authorization_test.json"</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_add_item_to_cart(java.lang.String)">
+                <span>When Pengguna menambah barang "Sauce Labs Onesie" ke cart</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_receive_created_user_body_and_status_code(java.lang.String)">
-                <span>Then Pengguna menerima data user yang telah dibuat dengan status code "200" ketika create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_click_cart_button()">
+                <span>And Pengguna menekan icon cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_is_on_the_cart_page()">
+                <span>And Pengguna berada pada halaman cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_click_checkout_button()">
+                <span>And Pengguna menekan tombol Checkout</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CartSteps.user_redirected_to_checkout_page()">
+                <span>Then Pengguna dialihkan ke halaman checkout</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="32"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Checkout Feature</p>
+            <p class="text-sm">
+              <span>1:30:12 AM</span> / <span>00:00:10:004</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Checkout Feature</h5>
+<span class='badge badge-success'>06.03.2024 1:30:12 AM</span>
+<span class='badge badge-danger'>06.03.2024 1:30:22 AM</span>
+<span class='badge badge-default'>00:00:10:004</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=32</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="33"><span class="badge log pass-bg mr-2">Pass</span>Melanjutkan proses checkout dengan menekan tombol "Continue"</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna berhasil melakukan login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_on_the_dashboard_page()">
+                <span>And Pengguna berada di halaman dashboard</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_add_item_to_cart(java.lang.String)">
+                <span>And Pengguna menambah barang "Sauce Labs Backpack" ke dalam cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_cart_icon()">
+                <span>And Pengguna menekan cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_on_cart_page()">
+                <span>And Pengguna diarahkan ke halaman cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_checkout_button()">
+                <span>And Pengguna memilih opsi Checkout</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_redirected_to_checkout_information_page()">
+                <span>And Pengguna dialihkan ke halaman checkout information</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_first_name(java.lang.String)">
+                <span>When Pengguna mengisikan field first name dengan value "John"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_last_name(java.lang.String)">
+                <span>And Pengguna mengisikan field last name dengan value "Doe"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_postal_code(java.lang.String)">
+                <span>And Pengguna mengisikan field postal code dengan value "54321"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_continue_button()">
+                <span>And Pengguna menekan tombol continue</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_redirected_to_checkout_overview_page()">
+                <span>Then Pengguna dialihkan ke halaman checkout overview</span>
       <div>
       </div>
               </div>
@@ -208,28 +345,99 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="17"><span class="badge log pass-bg mr-2">Pass</span>Melakukan request create user dengan email yang belum ada di database</div>
+        <div class="node" id="49"><span class="badge log fail-bg mr-2">Fail</span>Membatalkan proses pembelian dengan menekan tombol "Cancel"</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
       </div>
     </div>
-        <div class="collapse">
+        <div class="">
           <div class="card-body">
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_set_base_url()">
-                <span>Given Pengguna sudah menentukan base url untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna berhasil melakukan login</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_have_valid_app_id()">
-                <span>And Pengguna memiliki app-id yang valid untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_on_the_dashboard_page()">
+                <span>And Pengguna berada di halaman dashboard</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_send_get_request(java.lang.String)">
-                <span>When Pengguna mengirim create request dengan request body "create_user.json"</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_add_item_to_cart(java.lang.String)">
+                <span>And Pengguna menambah barang "Sauce Labs Backpack" ke dalam cart</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_receive_created_user_body_and_status_code(java.lang.String)">
-                <span>Then Pengguna menerima data user yang telah dibuat dengan status code "200" ketika create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_cart_icon()">
+                <span>And Pengguna menekan cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_on_cart_page()">
+                <span>And Pengguna diarahkan ke halaman cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_checkout_button()">
+                <span>And Pengguna memilih opsi Checkout</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_redirected_to_checkout_information_page()">
+                <span>And Pengguna dialihkan ke halaman checkout information</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_first_name(java.lang.String)">
+                <span>When Pengguna mengisikan field first name dengan value "John"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_last_name(java.lang.String)">
+                <span>And Pengguna mengisikan field last name dengan value "Doe"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_postal_code(java.lang.String)">
+                <span>And Pengguna mengisikan field postal code dengan value "54321"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_continue_button()">
+                <span>And Pengguna menekan tombol continue</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_redirected_to_checkout_overview_page()">
+                <span>And Pengguna dialihkan ke halaman checkout overview</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_cancel_button()">
+                <span>And Pengguna menekan tombol cancel</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_on_cart_page()">
+                <span>Then Pengguna diarahkan ke halaman cart</span>
+      <div>
+        <textarea disabled class="code-block">org.junit.ComparisonFailure: expected:<...//www.saucedemo.com/[cart].html> but was:<...//www.saucedemo.com/[inventory].html>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_on_cart_page(CheckoutSteps.java:53)
+	at ✽.Pengguna diarahkan ke halaman cart(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/checkout.feature:27)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Membatalkan proses pembelian dengan menekan tombol "Cancel"
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded1.png' src="./screenshots/embedded1.png">
+    
+    </div></div>
+</div>
       <div>
       </div>
               </div>
@@ -239,28 +447,1187 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="22"><span class="badge log pass-bg mr-2">Pass</span>Melakukan request create user dengan email yang sudah ada di database</div>
+        <div class="node" id="67"><span class="badge log pass-bg mr-2">Pass</span>Melanjutkan proses pembelian dengan menekan tombol "Finish"</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_set_base_url()">
-                <span>Given Pengguna sudah menentukan base url untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna berhasil melakukan login</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_have_valid_app_id()">
-                <span>And Pengguna memiliki app-id yang valid untuk create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_on_the_dashboard_page()">
+                <span>And Pengguna berada di halaman dashboard</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_send_get_request(java.lang.String)">
-                <span>When Pengguna mengirim create request dengan request body "create_user.json"</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_add_item_to_cart(java.lang.String)">
+                <span>And Pengguna menambah barang "Sauce Labs Backpack" ke dalam cart</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.a1.apitesting.stepdefinitions.CreateUserSteps.user_receive_error_message_and_status_code(java.lang.String,java.lang.String)">
-                <span>Then Pengguna menerima pesan error "BODY_NOT_VALID" dengan status code "400" ketika create user</span>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_cart_icon()">
+                <span>And Pengguna menekan cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_on_cart_page()">
+                <span>And Pengguna diarahkan ke halaman cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_checkout_button()">
+                <span>And Pengguna memilih opsi Checkout</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_redirected_to_checkout_information_page()">
+                <span>And Pengguna dialihkan ke halaman checkout information</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_first_name(java.lang.String)">
+                <span>When Pengguna mengisikan field first name dengan value "John"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_last_name(java.lang.String)">
+                <span>And Pengguna mengisikan field last name dengan value "Doe"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_input_postal_code(java.lang.String)">
+                <span>And Pengguna mengisikan field postal code dengan value "54321"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_continue_button()">
+                <span>And Pengguna menekan tombol continue</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_is_redirected_to_checkout_overview_page()">
+                <span>And Pengguna dialihkan ke halaman checkout overview</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.user_click_finish_button()">
+                <span>And Pengguna menekan tombol finish</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.CheckoutSteps.system_show_checkout_complete()">
+                <span>Then Sistem menampilkan checkout complete</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="85"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Dashboard Feature</p>
+            <p class="text-sm">
+              <span>1:30:22 AM</span> / <span>00:00:09:110</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Dashboard Feature</h5>
+<span class='badge badge-success'>06.03.2024 1:30:22 AM</span>
+<span class='badge badge-danger'>06.03.2024 1:30:32 AM</span>
+<span class='badge badge-default'>00:00:09:110</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=85</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="86"><span class="badge log pass-bg mr-2">Pass</span>Menambah 1 barang ke cart</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah berhasil login ke aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_on_the_dashboard_page()">
+                <span>Given Pengguna berada pada halaman dashboard</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_add_item_to_cart(java.lang.String)">
+                <span>When Pengguna menekan tombol Add to Cart pada barang "Sauce Labs Backpack"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.add_to_cart_button_of_item_changes_to_remove(java.lang.String)">
+                <span>And Tombol Add to Cart pada produk "Sauce Labs Backpack" berubah menjadi tombol Remove</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.number_of_item_in_cart(java.lang.String)">
+                <span>Then Sistem menampilkan nilai pada logo cart sebesar "1"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="95"><span class="badge log pass-bg mr-2">Pass</span>Menambah 6 barang ke cart</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah berhasil login ke aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_on_the_dashboard_page()">
+                <span>Given Pengguna berada pada halaman dashboard</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_add_all_items_to_cart()">
+                <span>When Pengguna menekan tombol Add to Cart pada semua barang</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.add_to_cart_button_of_all_items_changes_to_remove()">
+                <span>And Tombol Add to Cart pada semua barang berubah menjadi tombol Remove</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.number_of_item_in_cart(java.lang.String)">
+                <span>Then Sistem menampilkan nilai pada logo cart sebesar "6"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="104"><span class="badge log pass-bg mr-2">Pass</span>Menghapus 1 barang dari cart</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah berhasil login ke aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_on_the_dashboard_page()">
+                <span>Given Pengguna berada pada halaman dashboard</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_add_all_items_to_cart()">
+                <span>When Pengguna menekan tombol Add to Cart pada semua barang</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.add_to_cart_button_of_all_items_changes_to_remove()">
+                <span>And Tombol Add to Cart pada semua barang berubah menjadi tombol Remove</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.number_of_item_in_cart(java.lang.String)">
+                <span>Then Sistem menampilkan nilai pada logo cart sebesar "6"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.user_remove_item_from_cart(java.lang.String)">
+                <span>When Pengguna menekan tombol Remove pada barang "Sauce Labs Backpack"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.DashboardSteps.number_of_item_in_cart(java.lang.String)">
+                <span>Then Sistem menampilkan nilai pada logo cart sebesar "5"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="115"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">End to end</p>
+            <p class="text-sm">
+              <span>1:30:32 AM</span> / <span>00:00:03:219</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">End to end</h5>
+<span class='badge badge-success'>06.03.2024 1:30:32 AM</span>
+<span class='badge badge-danger'>06.03.2024 1:30:35 AM</span>
+<span class='badge badge-default'>00:00:03:219</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=115</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="116"><span class="badge log pass-bg mr-2">Pass</span>Melakukan checkout barang para aplikasi Swag Labs</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_is_on_the_login_page()">
+                <span>Given Pengguna berada pada halaman login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_enter_username(java.lang.String)">
+                <span>When Pengguna mengisikan username "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_enter_password(java.lang.String)">
+                <span>And Pengguna mengisikan password "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_click_login_button()">
+                <span>And Pengguna menekan login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_add_item_to_cart(java.lang.String)">
+                <span>And Pengguna menekan Add to Cart pada barang "Sauce Labs Backpack"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_click_cart_icon()">
+                <span>And Pengguna menekan logo cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_click_checkout_button()">
+                <span>And Pengguna menekan tombol checkout</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_enter_first_name(java.lang.String)">
+                <span>And Pengguna mengisikan field first name dengan "John"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_enter_last_name(java.lang.String)">
+                <span>And Pengguna mengisikan field last name dengan "Doe"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_enter_postal_code(java.lang.String)">
+                <span>And Pengguna mengisikan field postal code dengan "54321"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_click_continue_button()">
+                <span>And Pengguna menekan continue</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.user_click_finish_button()">
+                <span>And Pengguna menekan finish</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.EndToEndSteps.system_show_checkout_complete()">
+                <span>Then Aplikasi menampilkan pembelian berhasil</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="133"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Login</p>
+            <p class="text-sm">
+              <span>1:30:35 AM</span> / <span>00:00:22:273</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Login</h5>
+<span class='badge badge-success'>06.03.2024 1:30:35 AM</span>
+<span class='badge badge-danger'>06.03.2024 1:30:57 AM</span>
+<span class='badge badge-default'>00:00:22:273</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=133</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="134"><span class="badge log pass-bg mr-2">Pass</span>Login menggunakan username dan password yang terdaftar pada sistem</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_username(java.lang.String)">
+                <span>When Pengguna mengisi username "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_password(java.lang.String)">
+                <span>And Pengguna mengisi password "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>And Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_success_and_navigated_to_the_homepage()">
+                <span>Then Pengguna berhasil melakukan login dan menampilkan halaman Dashboard</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="144"><span class="badge log fail-bg mr-2">Fail</span>Login menggunakan username yang terdaftar pada sistem dan password yang tidak terdaftar pada sistem</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_username(java.lang.String)">
+                <span>When Pengguna mengisi username "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_password(java.lang.String)">
+                <span>And Pengguna mengisi password "boo"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>And Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(java.lang.String)">
+                <span>Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(LoginSteps.java:50)
+	at ✽.Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/login.feature:18)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Login menggunakan username yang terdaftar pada sistem dan password yang tidak terdaftar pada sistem
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded2.png' src="./screenshots/embedded2.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="154"><span class="badge log fail-bg mr-2">Fail</span>Login menggunakan password yang terdaftar pada sistem dan username yang tidak terdaftar pada sistem</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_username(java.lang.String)">
+                <span>When Pengguna mengisi username "cinderella"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_password(java.lang.String)">
+                <span>And Pengguna mengisi password "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>And Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(java.lang.String)">
+                <span>Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(LoginSteps.java:50)
+	at ✽.Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/login.feature:26)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Login menggunakan password yang terdaftar pada sistem dan username yang tidak terdaftar pada sistem
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded3.png' src="./screenshots/embedded3.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="164"><span class="badge log fail-bg mr-2">Fail</span>Login menggunakan username dan password yang tidak terdaftar pada sistem</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_username(java.lang.String)">
+                <span>When Pengguna mengisi username "cinderella"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_password(java.lang.String)">
+                <span>And Pengguna mengisi password "boo"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>And Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(java.lang.String)">
+                <span>Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(LoginSteps.java:50)
+	at ✽.Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/login.feature:34)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Login menggunakan username dan password yang tidak terdaftar pada sistem
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded4.png' src="./screenshots/embedded4.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="174"><span class="badge log fail-bg mr-2">Fail</span>Login menggunakan username yang terdaftar pada sistem dan password kosong</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_username(java.lang.String)">
+                <span>When Pengguna mengisi username "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>And Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(java.lang.String)">
+                <span>Then Pengguna gagal melakukan login dan terdapat error message "You Need Password !"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(LoginSteps.java:50)
+	at ✽.Pengguna gagal melakukan login dan terdapat error message "You Need Password !"(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/login.feature:41)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Login menggunakan username yang terdaftar pada sistem dan password kosong
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded5.png' src="./screenshots/embedded5.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="183"><span class="badge log fail-bg mr-2">Fail</span>Login menggunakan username yang tidak terdaftar pada sistem dan password kosong</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_username(java.lang.String)">
+                <span>When Pengguna mengisi username "cinderella"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>And Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(java.lang.String)">
+                <span>Then Pengguna gagal melakukan login dan terdapat error message "You Need Password !"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(LoginSteps.java:50)
+	at ✽.Pengguna gagal melakukan login dan terdapat error message "You Need Password !"(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/login.feature:48)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Login menggunakan username yang tidak terdaftar pada sistem dan password kosong
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded6.png' src="./screenshots/embedded6.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="192"><span class="badge log fail-bg mr-2">Fail</span>Login menggunakan password yang terdaftar pada sistem dan username kosong</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_password(java.lang.String)">
+                <span>When Pengguna mengisi password "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>And Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(java.lang.String)">
+                <span>Then Pengguna gagal melakukan login dan terdapat error message "You Need Username !"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(LoginSteps.java:50)
+	at ✽.Pengguna gagal melakukan login dan terdapat error message "You Need Username !"(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/login.feature:55)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Login menggunakan password yang terdaftar pada sistem dan username kosong
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded7.png' src="./screenshots/embedded7.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="201"><span class="badge log fail-bg mr-2">Fail</span>Login menggunakan password yang tidak terdaftar pada sistem dan username kosong</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_enter_password(java.lang.String)">
+                <span>When Pengguna mengisi password "boo"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>And Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(java.lang.String)">
+                <span>Then Pengguna gagal melakukan login dan terdapat error message "You Need Username !"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(LoginSteps.java:50)
+	at ✽.Pengguna gagal melakukan login dan terdapat error message "You Need Username !"(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/login.feature:62)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Login menggunakan password yang tidak terdaftar pada sistem dan username kosong
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded8.png' src="./screenshots/embedded8.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="210"><span class="badge log fail-bg mr-2">Fail</span>Login dengan username dan password kosong</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_open_page()">
+                <span>Given Pengguna membuka halaman saucedemo pada browser</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_on_login_page()">
+                <span>And Pengguna berada pada halaman login yang berisikan form username dan password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_click_login_button()">
+                <span>When Pengguna menekan tombol login</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(java.lang.String)">
+                <span>Then Pengguna gagal melakukan login dan terdapat error message "You need Username & Password !"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.a1.webtesting.stepdefinitions.LoginSteps.user_login_failed_and_show_error_message(LoginSteps.java:50)
+	at ✽.Pengguna gagal melakukan login dan terdapat error message "You need Username & Password !"(file:///D:/Kuliah/Semester-6/Pengujian%20Perangkat%20Lunak/testing-final-project/src/test/resources/features/webtesting/login.feature:68)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>com.a1.webtesting.stepdefinitions.Hooks.screenshotFailedScenario(io.cucumber.java.Scenario)</span>
+      <div>Login dengan username dan password kosong
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='./screenshots/embedded9.png' src="./screenshots/embedded9.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="218"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Menu Feature</p>
+            <p class="text-sm">
+              <span>1:30:57 AM</span> / <span>00:00:15:273</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Menu Feature</h5>
+<span class='badge badge-success'>06.03.2024 1:30:57 AM</span>
+<span class='badge badge-danger'>06.03.2024 1:31:12 AM</span>
+<span class='badge badge-default'>00:00:15:273</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=218</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="219"><span class="badge log pass-bg mr-2">Pass</span>Menekan icon Menu</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna telah login ke aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_on_the_dashboard_page()">
+                <span>And Pengguna telah berada pada halaman dashboard</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_click_menu_button()">
+                <span>When Pengguna menekan tombol menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.system_show_options(io.cucumber.datatable.DataTable)">
+                <span>Then Sistem menampilkan opsi berikut:</span>
+      <div><table class='markup-table table '><tr><td>All Items</td></tr><tr><td>About</td></tr><tr><td>Logout</td></tr><tr><td>Reset App State</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="227"><span class="badge log pass-bg mr-2">Pass</span>Memilih opsi "About"</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna telah login ke aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_on_the_dashboard_page()">
+                <span>And Pengguna telah berada pada halaman dashboard</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_click_menu_button()">
+                <span>When Pengguna menekan tombol menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_click_about_button()">
+                <span>And Pengguna menekan tombol About</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_on_the_about_page()">
+                <span>Then Sistem menampilkan halaman About</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="236"><span class="badge log pass-bg mr-2">Pass</span>Menutup menu</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna telah login ke aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_on_the_dashboard_page()">
+                <span>And Pengguna telah berada pada halaman dashboard</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_click_menu_button()">
+                <span>When Pengguna menekan tombol menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.user_click_close_button()">
+                <span>And Pengguna menekan tombol close</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.MenuSteps.system_hide_options(io.cucumber.datatable.DataTable)">
+                <span>Then Sistem menyembunyikan opsi berikut:</span>
+      <div><table class='markup-table table '><tr><td>All Items</td></tr><tr><td>About</td></tr><tr><td>Logout</td></tr><tr><td>Reset App State</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="245"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Product Detail Feature</p>
+            <p class="text-sm">
+              <span>1:31:12 AM</span> / <span>00:00:07:892</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Product Detail Feature</h5>
+<span class='badge badge-success'>06.03.2024 1:31:12 AM</span>
+<span class='badge badge-danger'>06.03.2024 1:31:20 AM</span>
+<span class='badge badge-default'>00:00:07:892</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=245</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="246"><span class="badge log pass-bg mr-2">Pass</span>Verifikasi halaman detail produk</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah login ke dalam aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_selected_product()">
+                <span>And Pengguna sudah memilih barang yang ingin dilihat detailnya</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_on_the_product_detail_product()">
+                <span>And Pengguna berada pada halaman detail produk</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.system_show_product_name()">
+                <span>Then Aplikasi menampilkan nama produk</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.system_show_product_description()">
+                <span>And Aplikasi menampilkan deskripsi produk</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.system_show_product_price()">
+                <span>And Aplikasi menampilkan harga produk</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.system_show_product_image()">
+                <span>And Aplikasi menampilkan gambar produk</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="257"><span class="badge log pass-bg mr-2">Pass</span>Menambah barang ke cart</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah login ke dalam aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_selected_product()">
+                <span>And Pengguna sudah memilih barang yang ingin dilihat detailnya</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_on_the_product_detail_product()">
+                <span>And Pengguna berada pada halaman detail produk</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_click_add_to_cart_button()">
+                <span>When Pengguna menekan tombol Add to Cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.add_to_cart_button_changed_to_remove()">
+                <span>Then Tombol Add to Cart pada barang berubah menjadi tombol Remove</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.system_show_number_on_cart_logo()">
+                <span>And Sistem menampilkan angka pada logo cart</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="267"><span class="badge log pass-bg mr-2">Pass</span>Menghapus barang dari cart</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_logged_in_succesfully()">
+                <span>Given Pengguna sudah login ke dalam aplikasi</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_selected_product()">
+                <span>And Pengguna sudah memilih barang yang ingin dilihat detailnya</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_on_the_product_detail_product()">
+                <span>And Pengguna berada pada halaman detail produk</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_click_add_to_cart_button()">
+                <span>When Pengguna menekan tombol Add to Cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.add_to_cart_button_changed_to_remove()">
+                <span>And Tombol Add to Cart pada barang berubah menjadi tombol Remove</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.system_show_number_on_cart_logo()">
+                <span>And Sistem menampilkan angka pada logo cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.user_click_remove_button()">
+                <span>And Pengguna menekan tombol Remove</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.remove_button_changed_to_add_to_cart()">
+                <span>Then Tombol Remove pada barang berubah menjadi tombol Add to Cart</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.a1.webtesting.stepdefinitions.ProductDetailSteps.system_hide_number_on_cart_logo()">
+                <span>And Sistem menyembunyikan angka pada logo cart</span>
       <div>
       </div>
               </div>
@@ -279,26 +1646,186 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view category-view attributes-view">
+<div class="test-wrapper row view exception-view attributes-view">
 <div class="test-list">
 <div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>5</span>
+<span class='badge log badge-danger'>8</span>
 </span>
-<p class="name">@CREATE</p>
-<p class="duration text-sm">5 tests</p>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">8 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@CREATE</h4>
-<span status="pass" class='badge log pass-bg'>5 passed</span>
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>8 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:39 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='151'>Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username yang terdaftar pada sistem dan password yang tidak terdaftar pada sistem.Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:42 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='161'>Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan password yang terdaftar pada sistem dan username yang tidak terdaftar pada sistem.Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:45 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='171'>Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username dan password yang tidak terdaftar pada sistem.Then Pengguna gagal melakukan login dan terdapat error message "Username and password do not match any user in this service !"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:47 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='180'>Then Pengguna gagal melakukan login dan terdapat error message "You Need Password !"</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username yang terdaftar pada sistem dan password kosong.Then Pengguna gagal melakukan login dan terdapat error message "You Need Password !"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:49 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='189'>Then Pengguna gagal melakukan login dan terdapat error message "You Need Password !"</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username yang tidak terdaftar pada sistem dan password kosong.Then Pengguna gagal melakukan login dan terdapat error message "You Need Password !"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:52 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='198'>Then Pengguna gagal melakukan login dan terdapat error message "You Need Username !"</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan password yang terdaftar pada sistem dan username kosong.Then Pengguna gagal melakukan login dan terdapat error message "You Need Username !"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:54 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='207'>Then Pengguna gagal melakukan login dan terdapat error message "You Need Username !"</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan password yang tidak terdaftar pada sistem dan username kosong.Then Pengguna gagal melakukan login dan terdapat error message "You Need Username !"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:57 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='215'>Then Pengguna gagal melakukan login dan terdapat error message "You need Username & Password !"</a>
+<div class="">
+<span class="badge badge-default">Login.Login dengan username dan password kosong.Then Pengguna gagal melakukan login dan terdapat error message "You need Username & Password !"</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.junit.ComparisonFailure</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.junit.ComparisonFailure</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:19 AM</td>
+<td>
+<a href="#" class="linked" test-id='32' id='64'>Then Pengguna diarahkan ke halaman cart</a>
+<div class="">
+<span class="badge badge-default">Checkout Feature.Membatalkan proses pembelian dengan menekan tombol "Cancel".Then Pengguna diarahkan ke halaman cart</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">7</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@Checkout</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Checkout</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -311,51 +1838,409 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>21:35:26 PM</td>
+<td>01:30:12 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Melakukan request create user tanpa header app-id</a>
+<a href="#" class="linked" test-id='32' id='33'>Melanjutkan proses checkout dengan menekan tombol "Continue"</a>
 <div class="">
-<span class="badge badge-default">Create User.Melakukan request create user tanpa header app-id</span>
+<span class="badge badge-default">Checkout Feature.Melanjutkan proses checkout dengan menekan tombol "Continue"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:16 AM</td>
+<td>
+<a href="#" class="linked" test-id='32' id='49'>Membatalkan proses pembelian dengan menekan tombol "Cancel"</a>
+<div class="">
+<span class="badge badge-default">Checkout Feature.Membatalkan proses pembelian dengan menekan tombol "Cancel"</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>21:35:28 PM</td>
+<td>01:30:19 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='7'>Melakukan request create user dengan header app-id yang invalid</a>
+<a href="#" class="linked" test-id='32' id='67'>Melanjutkan proses pembelian dengan menekan tombol "Finish"</a>
 <div class="">
-<span class="badge badge-default">Create User.Melakukan request create user dengan header app-id yang invalid</span>
+<span class="badge badge-default">Checkout Feature.Melanjutkan proses pembelian dengan menekan tombol "Finish"</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+<span class='badge log badge-danger'>8</span>
+</span>
+<p class="name">@Login</p>
+<p class="duration text-sm">9 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Login</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+<span status="fail" class='badge log badge-danger'>8 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:30:35 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='134'>Login menggunakan username dan password yang terdaftar pada sistem</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username dan password yang terdaftar pada sistem</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:37 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='144'>Login menggunakan username yang terdaftar pada sistem dan password yang tidak terdaftar pada sistem</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username yang terdaftar pada sistem dan password yang tidak terdaftar pada sistem</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:40 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='154'>Login menggunakan password yang terdaftar pada sistem dan username yang tidak terdaftar pada sistem</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan password yang terdaftar pada sistem dan username yang tidak terdaftar pada sistem</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:42 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='164'>Login menggunakan username dan password yang tidak terdaftar pada sistem</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username dan password yang tidak terdaftar pada sistem</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:45 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='174'>Login menggunakan username yang terdaftar pada sistem dan password kosong</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username yang terdaftar pada sistem dan password kosong</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:47 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='183'>Login menggunakan username yang tidak terdaftar pada sistem dan password kosong</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan username yang tidak terdaftar pada sistem dan password kosong</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:50 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='192'>Login menggunakan password yang terdaftar pada sistem dan username kosong</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan password yang terdaftar pada sistem dan username kosong</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:52 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='201'>Login menggunakan password yang tidak terdaftar pada sistem dan username kosong</a>
+<div class="">
+<span class="badge badge-default">Login.Login menggunakan password yang tidak terdaftar pada sistem dan username kosong</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>01:30:55 AM</td>
+<td>
+<a href="#" class="linked" test-id='133' id='210'>Login dengan username dan password kosong</a>
+<div class="">
+<span class="badge badge-default">Login.Login dengan username dan password kosong</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@EndToEnd</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@EndToEnd</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:30:32 AM</td>
+<td>
+<a href="#" class="linked" test-id='115' id='116'>Melakukan checkout barang para aplikasi Swag Labs</a>
+<div class="">
+<span class="badge badge-default">End to end.Melakukan checkout barang para aplikasi Swag Labs</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>3</span>
+</span>
+<p class="name">@Menu</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Menu</h4>
+<span status="pass" class='badge log pass-bg'>3 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:30:57 AM</td>
+<td>
+<a href="#" class="linked" test-id='218' id='219'>Menekan icon Menu</a>
+<div class="">
+<span class="badge badge-default">Menu Feature.Menekan icon Menu</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>21:35:28 PM</td>
+<td>01:31:01 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='12'>Melakukan request create user dengan header app-id yang valid</a>
+<a href="#" class="linked" test-id='218' id='227'>Memilih opsi "About"</a>
 <div class="">
-<span class="badge badge-default">Create User.Melakukan request create user dengan header app-id yang valid</span>
+<span class="badge badge-default">Menu Feature.Memilih opsi "About"</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>21:35:28 PM</td>
+<td>01:31:08 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='17'>Melakukan request create user dengan email yang belum ada di database</a>
+<a href="#" class="linked" test-id='218' id='236'>Menutup menu</a>
 <div class="">
-<span class="badge badge-default">Create User.Melakukan request create user dengan email yang belum ada di database</span>
+<span class="badge badge-default">Menu Feature.Menutup menu</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>3</span>
+</span>
+<p class="name">@Cart</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Cart</h4>
+<span status="pass" class='badge log pass-bg'>3 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:30:03 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>Verifikasi halaman Cart tidak kosong dengan terdapat 1 barang</a>
+<div class="">
+<span class="badge badge-default">Cart Feature.Verifikasi halaman Cart tidak kosong dengan terdapat 1 barang</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>21:35:29 PM</td>
+<td>01:30:07 AM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='22'>Melakukan request create user dengan email yang sudah ada di database</a>
+<a href="#" class="linked" test-id='1' id='12'>Menekan Tombol "Continue shoppIng" ketika berada dalam halaman cart</a>
 <div class="">
-<span class="badge badge-default">Create User.Melakukan request create user dengan email yang sudah ada di database</span>
+<span class="badge badge-default">Cart Feature.Menekan Tombol "Continue shoppIng" ketika berada dalam halaman cart</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:30:10 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='21'>Menekan Tombol checkout ketika terdapat total 1 barang dalam cart</a>
+<div class="">
+<span class="badge badge-default">Cart Feature.Menekan Tombol checkout ketika terdapat total 1 barang dalam cart</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>3</span>
+</span>
+<p class="name">@ProductDetail</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@ProductDetail</h4>
+<span status="pass" class='badge log pass-bg'>3 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:31:12 AM</td>
+<td>
+<a href="#" class="linked" test-id='245' id='246'>Verifikasi halaman detail produk</a>
+<div class="">
+<span class="badge badge-default">Product Detail Feature.Verifikasi halaman detail produk</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:31:15 AM</td>
+<td>
+<a href="#" class="linked" test-id='245' id='257'>Menambah barang ke cart</a>
+<div class="">
+<span class="badge badge-default">Product Detail Feature.Menambah barang ke cart</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:31:17 AM</td>
+<td>
+<a href="#" class="linked" test-id='245' id='267'>Menghapus barang dari cart</a>
+<div class="">
+<span class="badge badge-default">Product Detail Feature.Menghapus barang dari cart</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>3</span>
+</span>
+<p class="name">@Dashboard</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Dashboard</h4>
+<span status="pass" class='badge log pass-bg'>3 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:30:22 AM</td>
+<td>
+<a href="#" class="linked" test-id='85' id='86'>Menambah 1 barang ke cart</a>
+<div class="">
+<span class="badge badge-default">Dashboard Feature.Menambah 1 barang ke cart</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:30:25 AM</td>
+<td>
+<a href="#" class="linked" test-id='85' id='95'>Menambah 6 barang ke cart</a>
+<div class="">
+<span class="badge badge-default">Dashboard Feature.Menambah 6 barang ke cart</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>01:30:28 AM</td>
+<td>
+<a href="#" class="linked" test-id='85' id='104'>Menghapus 1 barang dari cart</a>
+<div class="">
+<span class="badge badge-default">Dashboard Feature.Menghapus 1 barang dari cart</span>
 </div>
 </td>
 </tr>
@@ -376,25 +2261,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 1, 2024 09:35:26 PM</h3>
+<h3>Jun 3, 2024 01:30:02 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 1, 2024 09:35:29 PM</h3>
+<h3>Jun 3, 2024 01:31:20 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>1</h3>
+<h3>5</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>0</h3>
+<h3>2</h3>
 </div></div>
 </div>
 </div>
@@ -410,12 +2295,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>1</b> features passed
+<div><small data-tooltip='71%'>
+<b>5</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> features failed,
+<small data-tooltip='28%'><b>2</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -433,9 +2318,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>5</b> scenarios passed</small></div>
+<div><small data-tooltip='64%'><b>16</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> scenarios failed,
+<small data-tooltip='36%'><b>9</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -453,9 +2338,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>20</b> steps passed</small></div>
+<div><small data-tooltip='95%'><b>172</b> steps passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> steps failed,
+<small data-tooltip='4%'><b>9</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -472,7 +2357,7 @@
 </div></div>
 <script>
 var timeline = {
-"Create User":2.971
+"Cart Feature":9.109,"Checkout Feature":10.004,"Dashboard Feature":9.11,"End to end":3.219,"Login":22.273,"Menu Feature":15.273,"Product Detail Feature":7.892
 };
 </script>
 <div class="row">
@@ -482,8 +2367,56 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@CREATE</td>
-<td>5</td>
+<td>@Checkout</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>66.667%</td>
+</tr>
+<tr>
+<td>@Login</td>
+<td>1</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>11.111%</td>
+</tr>
+<tr>
+<td>@EndToEnd</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Menu</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Cart</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@ProductDetail</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@Dashboard</td>
+<td>3</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -498,19 +2431,19 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 0,
+passParent: 5,
+failParent: 2,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 5,
-failChild: 0,
+passChild: 16,
+failChild: 9,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 20,
-failGrandChild: 0,
+passGrandChild: 172,
+failGrandChild: 9,
 warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
