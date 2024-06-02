@@ -26,6 +26,7 @@ public class DashboardPage {
     By removeSauceLabsRedTShirt = By.id("remove-test.allthethings()-t-shirt-(red)");
 
     By cartNumber = By.className("shopping_cart_badge");
+    By cartIcon = By.className("shopping_cart_link");
     By productName = By.id("item_4_title_link");
 
     public DashboardPage(WebDriver driver) {
@@ -119,5 +120,9 @@ public class DashboardPage {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void click_cart_icon(){
+        driver.findElement(cartIcon).click();
     }
 }
