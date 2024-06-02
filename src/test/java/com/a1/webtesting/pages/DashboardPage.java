@@ -26,7 +26,10 @@ public class DashboardPage {
     By removeSauceLabsRedTShirt = By.id("remove-test.allthethings()-t-shirt-(red)");
 
     By cartNumber = By.className("shopping_cart_badge");
+<<<<<<< HEAD
     By productName = By.id("item_4_title_link");
+=======
+>>>>>>> ebe43e666085adce2942aaad9d559a431ef4f0c7
 
     public DashboardPage(WebDriver driver) {
         this.driver = driver;
@@ -108,6 +111,7 @@ public class DashboardPage {
         WebElement shoppingCartBadge = driver.findElement(cartNumber);
         return Integer.parseInt(shoppingCartBadge.getText());
     }
+<<<<<<< HEAD
 
     public void select_product(){
         driver.findElement(productName).click();
@@ -121,4 +125,6 @@ public class DashboardPage {
             return false;
         }
     }
+=======
+>>>>>>> ebe43e666085adce2942aaad9d559a431ef4f0c7
 }
