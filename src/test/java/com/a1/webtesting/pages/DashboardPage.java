@@ -20,22 +20,19 @@ public class DashboardPage {
     By removeSauceLabsFleeceJacket = By.id("remove-sauce-labs-fleece-jacket");
 
     By addToCartSauceLabsOnesie = By.id("add-to-cart-sauce-labs-onesie");
-    By removeSauceLabsOnesie= By.id("remove-sauce-labs-onesie");
+    By removeSauceLabsOnesie = By.id("remove-sauce-labs-onesie");
 
     By addToCartSauceLabsRedTShirt = By.id("add-to-cart-test.allthethings()-t-shirt-(red)");
     By removeSauceLabsRedTShirt = By.id("remove-test.allthethings()-t-shirt-(red)");
 
     By cartNumber = By.className("shopping_cart_badge");
-<<<<<<< HEAD
     By productName = By.id("item_4_title_link");
-=======
->>>>>>> ebe43e666085adce2942aaad9d559a431ef4f0c7
 
     public DashboardPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void click_add_to_cart_button_of_item(String item){
+    public void click_add_to_cart_button_of_item(String item) {
         switch (item) {
             case "Sauce Labs Backpack":
                 driver.findElement(addToCartSauceLabsBackpackButton).click();
@@ -58,16 +55,16 @@ public class DashboardPage {
         }
     }
 
-    public void click_add_to_cart_for_all_items(){
-            driver.findElement(addToCartSauceLabsBackpackButton).click();
-            driver.findElement(addToCartSauceLabsBikeLightButton).click();
-            driver.findElement(addToCartSauceLabsBoltTShirt).click();
-            driver.findElement(addToCartSauceLabsFleeceJacket).click();
-            driver.findElement(addToCartSauceLabsOnesie).click();
-            driver.findElement(addToCartSauceLabsRedTShirt).click();
+    public void click_add_to_cart_for_all_items() {
+        driver.findElement(addToCartSauceLabsBackpackButton).click();
+        driver.findElement(addToCartSauceLabsBikeLightButton).click();
+        driver.findElement(addToCartSauceLabsBoltTShirt).click();
+        driver.findElement(addToCartSauceLabsFleeceJacket).click();
+        driver.findElement(addToCartSauceLabsOnesie).click();
+        driver.findElement(addToCartSauceLabsRedTShirt).click();
     }
 
-    public void click_remove_button_of_item(String item){
+    public void click_remove_button_of_item(String item) {
         switch (item) {
             case "Sauce Labs Backpack":
                 driver.findElement(removeSauceLabsBackpackButton).click();
@@ -107,24 +104,20 @@ public class DashboardPage {
                 driver.findElement(removeSauceLabsRedTShirt).isDisplayed();
     }
 
-    public Integer cartNumberCount(){
+    public Integer cartNumberCount() {
         WebElement shoppingCartBadge = driver.findElement(cartNumber);
         return Integer.parseInt(shoppingCartBadge.getText());
     }
-<<<<<<< HEAD
 
-    public void select_product(){
+    public void select_product() {
         driver.findElement(productName).click();
     }
 
-    public boolean is_number_visible(){
+    public boolean is_number_visible() {
         try {
             return driver.findElement(cartNumber).isDisplayed();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
-=======
->>>>>>> ebe43e666085adce2942aaad9d559a431ef4f0c7
 }
