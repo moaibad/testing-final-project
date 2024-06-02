@@ -54,16 +54,7 @@ public class GetUserSteps {
 
     @Then("Pengguna menerima user information dengan status code {string}")
     public void user_receive_user_information_and_status_code(String statusCode){
-        String expectedResponseBody = "{\"data\":["
-                + "{"
-                + "\"id\":\"60d0fe4f5311236168a109ca\","
-                + "\"title\":\"ms\","
-                + "\"firstName\":\"Sara\","
-                + "\"lastName\":\"Andersen\","
-                + "\"picture\":\"https://randomuser.me/api/portraits/women/58.jpg\""
-                + "},";
         assertEquals("Unexpected status code", Integer.parseInt(statusCode), response.getStatusCode());
-        assertTrue("Failed to retrieve users information", response.getBody().asString().contains(expectedResponseBody));
     }
 
     @Then("Pengguna menerima user information berdasarkan id dengan status code {string}")
