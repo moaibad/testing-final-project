@@ -25,6 +25,7 @@ Feature: Create User
     When Pengguna mengirim create request dengan request body "create_user.json"
     Then Pengguna menerima data user yang telah dibuat dengan status code "200" ketika create user
 
+    #Diganti jadi TC13
   Scenario: Melakukan request create user dengan email yang sudah ada di database
     Given Pengguna sudah menentukan base url untuk create user
     And Pengguna memiliki app-id yang valid untuk create user

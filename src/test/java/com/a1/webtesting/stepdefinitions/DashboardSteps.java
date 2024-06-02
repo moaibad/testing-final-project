@@ -2,7 +2,6 @@ package com.a1.webtesting.stepdefinitions;
 
 import com.a1.webtesting.pages.DashboardPage;
 import com.a1.webtesting.pages.LoginPage;
-import com.a1.webtesting.pages.LogoutPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.And;
