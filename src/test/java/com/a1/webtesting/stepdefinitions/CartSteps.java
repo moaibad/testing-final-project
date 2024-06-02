@@ -47,7 +47,7 @@ public class CartSteps {
     @Then("Pengguna berada pada halaman cart")
     public void user_is_on_the_cart_page(){
         String expectedUrl = "https://www.saucedemo.com/cart.html";
-        assertTrue("User is not on dashboard page", loginPage.getCurrentUrl().contains(expectedUrl));
+        assertTrue("User is not on cart page", loginPage.getCurrentUrl().contains(expectedUrl));
     }
 
     @And("Pengguna melihat {string} produk di dalam cart")
