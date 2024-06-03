@@ -23,11 +23,11 @@ Repository ini bertujuan untuk melakukan pengujian terhadap website Swag Labs ht
 
 2. Lakukan clone git repository dengan menjalankan perintah
 ```bash
-  git clone https://github.com/moaibad/web-testing.git
+  git clone https://github.com/moaibad/testing-final-project.git
 ```
 3. Masuk ke dalam direktori project dengan menjalankan perintah
 ```bash
-  cd web-testing
+  cd testing-final-project
 ```
 
 4. Jalankan perintah berikut untuk menjalankan semua testcase
